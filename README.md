@@ -1,4 +1,4 @@
-# Excercise to lean DevOps
+# Excercises to learn DevOps
 
 Concept:
 - two docker container: Gitlab, Application with dependencies
@@ -32,6 +32,9 @@ Tech to learn:
 - Ansible?
 
 Ressources:
+
 https://www.youtube.com/playlist?list=PLu-nSsOS6FRIg52MWrd7C_qSnQp3ZoHwW
+
 https://www.udemy.com/course/docker-mastery/
+
 https://www.udemy.com/course/linux-mastery/
