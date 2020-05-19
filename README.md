@@ -2,26 +2,28 @@
 
 Concept:
 - two docker container: Gitlab, Application with dependencies
-- managed with kubernetes
-- local everythings
-- all container should and host machine should start with one masterscript
+- version control: Gitlab
+- pipeline: Gitlab Ci
+- container: Docker
+- container orchestrator: Kubernetes
+- local everything
+- all docker containers and kubernetes on the host machine should start with one script
 
 To-Do:
 - Install linux machine
 - Install docker 
 - Run application with dependencies
-- Create Makefile for dependencies and application and linux
-- Run with Docker a Gitlab Container, make CI (Build/Test/Deploy)
-- Create Concept
-- Create Makefile to download repository and uploaded to local gitlab 
-- Put it into the makefile 
-- create gitlab-ci.yml (build/test/deploy when new version) 
-- create gitlab-docker-compose.yml to start 
-- transistion to container with application-docker-compose.yml 
-- Install / Put it in Kubernetes with UI (scale to 2) 
-- put it into a makefile 
-- make it all start with ansible?
-- create fake domain names in hostfile (FQDNs)
+- Create dockerfile for the application and dependencies
+- Check the application code into gitlab
+- Create with Gitlab CI (Build/Test/Deploy) a image and let it run on a container
+- Create gitlab-ci.yml (build/test/deploy when new version) 
+- Create docker-compose.yml to start 
+- Install / Put it in Kubernetes with Dashboard (scale to 2) 
+- Create a .yml for Kubernetes
+- Put it into a makefile 
+- Make it all start with ansible?
+- create fake domain names in hostfile or whatever FQDNs are
+- Write a Getting Started Section
 
 Tech to learn:
 - Linux
