@@ -7,7 +7,7 @@ Concept:
 - container: Docker
 - container orchestrator: Kubernetes
 - local everything
-- all docker containers and kubernetes on the host machine should start with one script
+- complete infratructure start script/option
 
 To-Do:
 - Install linux machine
