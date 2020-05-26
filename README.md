@@ -7,7 +7,7 @@ Concept:
 - container: Docker
 - container orchestrator: Kubernetes
 - local everything
-- complete infratructure start script/option
+- complete infrastructure start script/option
 
 To-Do:
 - Install linux machine
