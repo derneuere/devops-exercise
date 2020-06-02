@@ -10,12 +10,8 @@ sudo -y apt-get install docker-ce docker-ce-cli containerd.io <br>
 <br>
 //run application locally <br>
 git clone https://github.com/zainlol/lecture-devops-app.git <br>
-cd lecture-devops-app <br>
-sudo apt install make <br>
-make <br>
-make run-db <br>
-make run-local <br>
-<br>
+docker build . -t app -f /lecture-devops-app <br>
+docker run -d app <br>
 //run official MongoDB <br>
 sudo docker run -d -p 27017:27107 -v ~/data:/data/db mongo <br>
 // run Gitlab Docker Image <br>
