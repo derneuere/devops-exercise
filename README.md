@@ -14,7 +14,7 @@ To-Do:
 - Try Vagrant
 - Install docker ✓  
 - Run application locally with dependencies ✓
-- Create dockerfile for the application: it is unclear if you need two files
+- Create dockerfile for the application: one application server/client, make sure it runs
 - Find a docker image MongoDB ✓
 - Find a docker image for local Gitlab ✓
 - Check the application code into local Gitlab
