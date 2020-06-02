@@ -10,13 +10,13 @@ Concept:
 - complete infrastructure start script/option
 
 To-Do:
-- Install linux
+- Install linux ✓
 - Try Vagrant
-- Install docker 
-- Run application locally with dependencies
-- Create dockerfile for the application
-- Create dockerfile for MongoDB
-- Create dockerfile for local Gitlab
+- Install docker ✓  
+- Run application locally with dependencies ✓
+- Create dockerfile for the application: it is unclear if you need two files
+- Find a docker image MongoDB ✓
+- Find a docker image for local Gitlab ✓
 - Check the application code into local Gitlab
 - Create with Gitlab CI (Build/Test/Deploy) a image and let it run on a container
 - Create gitlab-ci.yml (build/test/deploy when new version) 
