@@ -8,11 +8,12 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" 
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io 
 
-//run application locally
-sudo docker build --tag app https://github.com/zainlol/lecture-devops-app.git 
-docker run -d app 
 //run official MongoDB 
 sudo docker run -d -p 27017:27107 -v ~/data:/data/db mongo 
+//run application locally
+sudo docker build --tag app https://github.com/zainlol/lecture-devops-app.git 
+sudo docker run -d app 
+
 // run Gitlab Docker Image 
 export GITLAB_HOME=/srv 
 sudo docker run --detach \ 
