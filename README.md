@@ -11,7 +11,7 @@ Concept:
 
 To-Do:
 - Install linux ✓
-- Try Vagrant
+- Install Vagrant ✓
 - Install docker ✓  
 - Run application locally with dependencies ✓
 - Create dockerfile for the application: one application server/client, make sure it runs
