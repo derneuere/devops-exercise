@@ -9,9 +9,8 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io 
 
 //run application locally
-git clone https://github.com/zainlol/lecture-devops-app.git 
-docker build . -t app -f /lecture-devops-app 
-docker run -d app 
+sudo docker build https://github.com/zainlol/lecture-devops-app.git 
+docker run -d lecture-devops-app 
 //run official MongoDB 
 sudo docker run -d -p 27017:27107 -v ~/data:/data/db mongo 
 // run Gitlab Docker Image 
