@@ -1,5 +1,9 @@
 # Excercises to learn DevOps
 
+Getting Started:
+- you need vagrant
+- all needed commands are in the "Commands" File
+
 Concept:
 - three docker container: Gitlab, Application with NPM, MongoDB
 - version control: Gitlab
@@ -24,7 +28,7 @@ To-Do:
 - Configure kubespray to fetch container
 - Configure kubespray to port forward
 - create fake domain names in hostfile or whatever FQDNs are
-- Write a Getting Started Section
+- Improve Getting Started Section
 
 Tech to learn:
 - Linux
