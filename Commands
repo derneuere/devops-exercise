@@ -1,5 +1,6 @@
 vagrant init hashicorp/bionic64
 vagrant up
+vagrant ssh
 
 //install docker 
 sudo apt-get update 
