@@ -24,8 +24,9 @@ To-Do:
 - Check the application code into local Gitlab
 - Create with Gitlab CI (Build/Test/Deploy) a image and let it run on a container
 - Create gitlab-ci.yml (build/test/deploy when new version) 
-- Install kubespray
-- Configure kubespray to fetch container
+- Fork kubespray
+- Install kubespray with Ansible
+- Configure kubespray to fetch own inventory
 - Configure kubespray to port forward
 - create fake domain names in hostfile or whatever FQDNs are
 - Improve Getting Started Section
@@ -37,6 +38,7 @@ Tech to learn:
 - Docker
 - Kubernetes
 - Vagrant
+- Ansible
 
 Ressources:
 
