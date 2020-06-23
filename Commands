@@ -23,12 +23,5 @@ sudo docker run -d -p 3000:3000 app
 
 // run Gitlab Docker Image 
 export GITLAB_HOME=/srv 
-sudo docker run --detach \ 
-  --hostname gitlab.example.com \ 
-  --publish 443:443 --publish 80:80 --publish 22:22 \ 
-  --name gitlab \ 
-  --restart always \ 
-  --volume $GITLAB_HOME/gitlab/config:/etc/gitlab \ 
-  --volume $GITLAB_HOME/gitlab/logs:/var/log/gitlab \ 
-  --volume $GITLAB_HOME/gitlab/data:/var/opt/gitlab \ 
-  gitlab/gitlab-ce:latest 
+
+sudo docker run --detach --hostname gitlab.example.com --publish 443:443 --publish 80:80 --publish 22:22 --name gitlab --restart always --volume $GITLAB_HOME/gitlab/config:/etc/gitlab --volume $GITLAB_HOME/gitlab/logs:/var/log/gitlab --volume $GITLAB_HOME/gitlab/data:/var/opt/gitlab  gitlab/gitlab-ce:latest 
