@@ -24,8 +24,10 @@ To-Do:
 - Create with Gitlab CI (Build/Test/Deploy) a image and let it run on a container
 - Create gitlab-ci.yml (build/test/deploy when new version) 
 - Install MicroK8s
+- Install Dashboard
 - Configure Dockerfiles
-- Make it listen to registry
+- Create local registry
+- Make MicroK8s listen to registry
 - create fake domain names in hostfile or whatever FQDNs are (Nginx?)
 - Improve Getting Started Section
 
