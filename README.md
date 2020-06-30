@@ -37,8 +37,11 @@ Tech to learn:
 - Gitlab CI/CD
 - Docker
 - Kubernetes mit MicroK8s
+- Nginx
 
 Ressources:
+https://www.danclarke.com/nginx-to-avoid-localhost-port
+
 https://www.youtube.com/playlist?list=PLu-nSsOS6FRIg52MWrd7C_qSnQp3ZoHwW
 
 https://www.udemy.com/course/docker-mastery/
