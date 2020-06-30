@@ -1,34 +1,32 @@
 # Excercises to learn DevOps
 
 Getting Started:
-- you need vagrant
 - all needed commands are in the "Commands" File
 
 Concept:
-- three docker container: Gitlab, Application with NPM, MongoDB
+- three docker container: Gitlab, Application with Node.js and NPM, MongoDB
 - version control: Gitlab
 - pipeline: Gitlab Ci
 - container: Docker
-- container orchestrator: Kubernetes/Vagrant with Kubespray
+- container orchestrator: MicroK8s
 - local everything
 - complete infrastructure start script/option
 
 To-Do:
 - Install linux ✓
-- Install Vagrant ✓
 - Install docker ✓  
 - Run application locally with dependencies ✓
-- Create dockerfile for the application: one application server/client, make sure it runs
+- Create dockerfile for the application: one application server/client, make sure it runs ✓
 - Find a docker image MongoDB ✓
+- Connect MongoDB with Application
 - Find a docker image for local Gitlab ✓
 - Check the application code into local Gitlab
 - Create with Gitlab CI (Build/Test/Deploy) a image and let it run on a container
 - Create gitlab-ci.yml (build/test/deploy when new version) 
-- Fork kubespray
-- Install kubespray with Ansible
-- Configure kubespray to fetch own inventory
-- Configure kubespray to port forward
-- create fake domain names in hostfile or whatever FQDNs are
+- Install MicroK8s
+- Configure Dockerfiles
+- Make it listen to registry
+- create fake domain names in hostfile or whatever FQDNs are (Nginx?)
 - Improve Getting Started Section
 
 Tech to learn:
@@ -36,14 +34,9 @@ Tech to learn:
 - Git with Gitlab 
 - Gitlab CI/CD
 - Docker
-- Kubernetes
-- Vagrant
-- Ansible
+- Kubernetes mit MicroK8s
 
 Ressources:
-
-https://kubespray.io/
-
 https://www.youtube.com/playlist?list=PLu-nSsOS6FRIg52MWrd7C_qSnQp3ZoHwW
 
 https://www.udemy.com/course/docker-mastery/
