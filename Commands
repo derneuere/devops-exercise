@@ -38,3 +38,5 @@ sudo usermod -a -G microk8s $USER
 sudo chown -f -R $USER ~/.kube
 su - $USER
 
+//port forward
+microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443
