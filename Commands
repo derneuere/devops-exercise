@@ -23,9 +23,6 @@ git add --all
 git config --global credential.helper store
 git push --set-upstream https://gitlab.example.com/namespace/nonexistent-project.git master
 
-//deploy local registry
-docker run -d -p 5000:5000 --restart=always --name registry registry:2
-
 //install snap and MicroK8s
 git clone https://aur.archlinux.org/snapd.git
 cd snapd
@@ -34,3 +31,5 @@ sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
 sudo snap install microk8s --classic
 microk8s enable dashboard
+microk8s enable registry
+
