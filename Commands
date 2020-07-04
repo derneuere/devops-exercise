@@ -38,5 +38,9 @@ sudo usermod -a -G microk8s $USER
 sudo chown -f -R $USER ~/.kube
 su - $USER
 
+// create token
+token=$(microk8s kubectl -n kube-system get secret | grep default-token | cut -d " " -f1)
+microk8s kubectl -n kube-system describe secret $token
+
 //port forward
 microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443
