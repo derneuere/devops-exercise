@@ -29,6 +29,8 @@ spec:
     - name: todoapp
       image: localhost:32000/todoapp:registry
       imagePullPolicy: Always
+      ports:
+        - containerPort: 3000
 
 apiVersion: mongodb.com/v1
 kind: MongoDB
