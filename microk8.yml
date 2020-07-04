@@ -27,9 +27,8 @@ metadata:
 spec:
   containers:
     - name: todoapp
-      image: todoapp
+      image: localhost:32000/todoapp:registry
       imagePullPolicy: Always
-      command: [ "echo", "SUCCESS" ]
 
 apiVersion: mongodb.com/v1
 kind: MongoDB
