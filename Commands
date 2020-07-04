@@ -33,3 +33,8 @@ sudo snap install microk8s --classic
 sudo microk8s enable dashboard
 sudo microk8s enable registry
 
+//add to user group
+sudo usermod -a -G microk8s $USER
+sudo chown -f -R $USER ~/.kube
+su - $USER
+
