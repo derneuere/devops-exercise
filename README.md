@@ -1,7 +1,7 @@
 # Excercises to learn DevOps
 
 Getting Started:
-- all needed commands are in the "Commands" File
+- Install MicroK8s with the "Kubernetes Commands" File
 
 Concept:
 - three docker container: Gitlab, Application with Node.js and NPM, MongoDB
@@ -28,7 +28,7 @@ To-Do:
 - Install Registry ✓
 - Create Kubernetes.yml ✓
 - Test Kubernetes.yml
-- Push to registry of MicroK8s
+- Push to registry of MicroK8s ✓
 - Configure Nginx to have FQDNs
 - Improve Getting Started Section
 
