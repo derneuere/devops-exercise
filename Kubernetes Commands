@@ -4,7 +4,7 @@ cd snapd
 makepkg -si
 sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
-sudo snap install microk8s --classic
+sudo snap install microk8s --classicslow
 sudo microk8s enable dashboard
 sudo microk8s enable registry
 
@@ -19,6 +19,12 @@ microk8s kubectl -n kube-system describe secret $token
 
 //port forward
 microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443
+
+//init pods
+sudo microk8s kubectl apply -f microk8.yml
+
+//start pods
+microk8s start
 
 //add repository of application to gitlab
 cd lecture-devops-app
