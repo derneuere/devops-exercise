@@ -32,15 +32,16 @@ To-Do:
 - Configure Nginx to have FQDNs
 - Improve Getting Started Section
 
-Tech to learn:
+Tech:
 - Linux
 - Git with Gitlab 
 - Gitlab CI/CD
 - Docker
-- Kubernetes mit MicroK8s
+- Kubernetes with MicroK8s
 - Nginx
 
 Ressources:
+
 https://www.danclarke.com/nginx-to-avoid-localhost-port
 
 https://www.youtube.com/playlist?list=PLu-nSsOS6FRIg52MWrd7C_qSnQp3ZoHwW
