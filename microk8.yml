@@ -29,6 +29,10 @@ spec:
     - name: gitlab
       image: gitlab/gitlab-ce:latest
       imagePullPolicy: Always
+      hostAliases:
+      - ip: "127.0.0.1"
+        hostnames:
+        - "gitlab.example.com"
       ports:
       - name: http
         port: 80
@@ -44,7 +48,7 @@ spec:
         name: etc
       - mountPath: "/var/log/gitlab"
         name: logs
-        - mountPath: "/var/opt/gitlab"
+      - mountPath: "/var/opt/gitlab"
         name: opt
       volumes:
     - name: logs
@@ -56,10 +60,7 @@ spec:
     - name: opt
       persistentVolumeClaim:
        claimName: gitlab-volumeclaim
-    hostAliases:
-        - ip: "127.0.0.1"
-        hostnames:
-        - "gitlab.example.com"
+    
 
 apiVersion: v1
 kind: Pod
