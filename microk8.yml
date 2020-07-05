@@ -95,7 +95,7 @@ kind: volume
 metadata:
   name: volumeForAllApplications
 spec:
-  storageClassName: volumeForAllApplications 
+  storageClassName: standard 
   capacity:
     storage: 100Mi
   accessModes:
@@ -105,11 +105,10 @@ spec:
 
 apiVersion: v1
 kind: PersistentVolumeClaim
-apiVersion: v1
 metadata:
   name: gitlab-volumeclaim
 spec:
-  storageClassName: slow
+  storageClassName: standard 
   accessModes:
     - ReadWriteOnce
   resources:
