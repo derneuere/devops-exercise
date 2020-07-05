@@ -28,7 +28,7 @@ test:
 deploy:
   stage: deploy
   script:
-    - docker build . -t localhost:32000/todoapp:registry
+    - docker build . -t localhost:32000/todoapp
     - docker push localhost:32000/todoapp
   only:
     - master
