@@ -23,7 +23,7 @@ microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:
 //add repository of application to gitlab
 cd lecture-devops-app
 git init
-git add --all
+git add .
 git config --global credential.helper store
 git push --set-upstream https://gitlab.example.com/namespace/nonexistent-project.git master
 
