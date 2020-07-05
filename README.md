@@ -48,4 +48,4 @@ https://www.youtube.com/playlist?list=PLu-nSsOS6FRIg52MWrd7C_qSnQp3ZoHwW
 
 https://www.udemy.com/course/docker-mastery/
 
-https://www.udemy.com/course/linux-mastery/
+https://www.youtube.com/c/LukeSmithxyz/videos
