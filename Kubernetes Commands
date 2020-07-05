@@ -1,0 +1,29 @@
+//install snap and MicroK8s
+git clone https://aur.archlinux.org/snapd.git
+cd snapd
+makepkg -si
+sudo systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
+sudo snap install microk8s --classic
+sudo microk8s enable dashboard
+sudo microk8s enable registry
+
+//add to user group
+sudo usermod -a -G microk8s $USER
+sudo chown -f -R $USER ~/.kube
+su - $USER
+
+// create token
+token=$(microk8s kubectl -n kube-system get secret | grep default-token | cut -d " " -f1)
+microk8s kubectl -n kube-system describe secret $token
+
+//port forward
+microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443
+
+//add repository of application to gitlab
+cd lecture-devops-app
+git init
+git add --all
+git config --global credential.helper store
+git push --set-upstream https://gitlab.example.com/namespace/nonexistent-project.git master
+
