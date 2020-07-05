@@ -29,6 +29,10 @@ spec:
     - name: gitlab
       image: gitlab/gitlab-ce:latest
       imagePullPolicy: Always
+      hostAliases:
+        - ip: "127.0.0.1"
+        hostnames:
+        - "gitlab.example.com"
       ports:
       - name: http
         port: 80
@@ -39,10 +43,6 @@ spec:
       - name: ssh 
         port: 22
         targetPort: 22
-      hostAliases:
-        - ip: "127.0.0.1"
-        hostnames:
-        - "gitlab.example.com"
       volumeMounts:
       - mountPath: "/etc/gitlab"
         name: etc
