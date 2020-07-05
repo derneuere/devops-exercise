@@ -21,14 +21,15 @@ To-Do:
 - Connect MongoDB with Application
 - Find a docker image for local Gitlab ✓
 - Check the application code into local Gitlab
-- Create with Gitlab CI (Build/Test/Deploy) a image and push to local registry
-- Create gitlab-ci.yml (build/test/deploy when new version) 
+- Create gitlab-ci.yml (build/test/deploy when new version) ✓
+- Test gitlab-ci.yml
 - Install MicroK8s ✓
 - Install Dashboard ✓
 - Install Registry ✓
-- Configure Dockerfiles
-- Make MicroK8s listen to registry
-- create fake domain names in hostfile or whatever FQDNs are (Nginx?)
+- Create Kubernetes.yml ✓
+- Test Kubernetes.yml
+- Push to registry of MicroK8s
+- Configure Nginx to have FQDNs
 - Improve Getting Started Section
 
 Tech to learn:
