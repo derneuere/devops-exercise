@@ -22,7 +22,7 @@ spec:
         
 ---
 
-apiVersion: v1
+apiVersion: extensions/v1beta1
 kind: Pod
 metadata:
   name: gitlab
