@@ -23,6 +23,48 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
+  name: gitlab
+spec:
+  containers:
+    - name: gitlab
+      image: gitlab/gitlab-ce:latest
+      imagePullPolicy: Always
+      ports:
+      - name: http
+        port: 80
+        targetPort: 80
+      - name: https
+        port: 443
+        targetPort: 443
+      - name: ssh 
+        port: 22
+        targetPort: 22
+      hostAliases:
+        - ip: "127.0.0.1"
+        hostnames:
+        - "gitlab.example.com"
+      volumeMounts:
+      - mountPath: "/etc/gitlab"
+        name: etc
+      - mountPath: "/var/log/gitlab"
+        name: logs
+        - mountPath: "/var/opt/gitlab"
+        name: opt
+      volumes:
+    - name: logs
+      persistentVolumeClaim:
+       claimName: gitlab-volumeclaim
+    - name: etc
+      persistentVolumeClaim:
+       claimName: gitlab-volumeclaim
+    - name: opt
+      persistentVolumeClaim:
+       claimName: gitlab-volumeclaim
+        
+
+apiVersion: v1
+kind: Pod
+metadata:
   name: todoapp
 spec:
   containers:
@@ -46,3 +88,30 @@ spec:
   credentials: <mycredentials>
   type: ReplicaSet
   persistent: true
+
+
+apiVersion: v1
+kind: volume
+metadata:
+  name: volumeForAllApplications
+spec:
+  storageClassName: volumeForAllApplications 
+  capacity:
+    storage: 100Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/persistent-volume"
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: gitlab-volumeclaim
+spec:
+  storageClassName: volumeForAllApplications
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Mi
