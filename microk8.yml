@@ -109,7 +109,7 @@ apiVersion: v1
 metadata:
   name: gitlab-volumeclaim
 spec:
-  storageClassName: volumeForAllApplications
+  storageClassName: slow
   accessModes:
     - ReadWriteOnce
   resources:
