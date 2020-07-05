@@ -79,20 +79,52 @@ spec:
 
 ---
 
-apiVersion: mongodb.com/v1
-kind: MongoDB
+apiVersion: apps/v1beta1
+kind: StatefulSet
 metadata:
-  name: MongoDB
+  name: mongo
 spec:
-  members: 3
-  version: 4.2.2-ent
-  opsManager:
-    configMapRef:
-      name: <configMap.metadata.name>
-            # Must match metadata.name in ConfigMap file
-  credentials: <mycredentials>
-  type: ReplicaSet
-  persistent: true
+  selector:
+    matchLabels:
+      role: mongo
+      environment: test
+  serviceName: "mongo"
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        role: mongo
+        environment: test
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: mongo
+        image: mongo
+        command:
+          - mongod
+          - "--replSet"
+          - rs0
+          - "--smallfiles"
+          - "--noprealloc"
+        ports:
+          - containerPort: 27017
+        volumeMounts:
+          - name: mongo-persistent-storage
+            mountPath: /data/db
+      - name: mongo-sidecar
+        image: cvallance/mongo-k8s-sidecar
+        env:
+          - name: MONGO_SIDECAR_POD_LABELS
+            value: "role=mongo,environment=test"
+  volumeClaimTemplates:
+    - metadata:
+        name: mongo-persistent-storage
+      spec:
+        storageClassName: "fast"
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 500Mi
 
 ---
 
