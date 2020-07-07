@@ -37,6 +37,7 @@ To-Do:
 
 Tech:
 - Linux with Manjaro KDE
+- Terminal with Fish
 - Git with Gitlab 
 - Gitlab CI/CD
 - Docker
