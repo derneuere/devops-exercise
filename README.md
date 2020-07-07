@@ -14,6 +14,7 @@ Concept:
 
 Backup Strategy:
 - run Gitlab @ gitlab.com
+https://gitlab.com/devops-exercise/lecture-devops-app/-/tree/master
 
 To-Do:
 - Install linux ✓
