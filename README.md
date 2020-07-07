@@ -22,7 +22,7 @@ To-Do:
 - Find a docker image for local Gitlab ✓
 - Check the application code into local Gitlab
 - Create gitlab-ci.yml (build/test/deploy when new version) ✓
-- Test gitlab-ci.yml
+- Test gitlab-ci.yml ✓
 - Install MicroK8s ✓
 - Install Dashboard ✓
 - Install Registry ✓
