@@ -1,34 +1,31 @@
-image: node:latest
-
 stages:
   - build
   - test
   - deploy
 
-cache:
-      paths:
-        - node_modules/
-
-variables:
-  CLIENT_PATH: "app/client"
-
 build:
+  image: node:latest
   stage: build
   script:
-    - npm install $CLIENT_PATH
-  artifacts:
-        paths:
-          - node_modules/
-
+    - cd app/client
+    - npm install
+    - npm run build 
 test:
+  image: node:latest
   stage: test
   script:
-    - npm tests $CLIENT_PATH
+    - cd app/client
+    - npm install
+    - npm run test
 
 deploy:
   stage: deploy
+  image: docker:stable
+  services:
+    - docker:dind
   script:
-    - docker build . -t localhost:32000/todoapp
-    - docker push localhost:32000/todoapp
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build -t registry.gitlab.com/devops-exercise/lecture-devops-app .
+    - docker push registry.gitlab.com/devops-exercise/lecture-devops-app
   only:
     - master
