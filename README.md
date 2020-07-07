@@ -12,6 +12,9 @@ Concept:
 - local everything
 - complete infrastructure start script/option
 
+Backup Strategy:
+- run Gitlab @ gitlab.com
+
 To-Do:
 - Install linux ✓
 - Install docker ✓  
@@ -33,7 +36,7 @@ To-Do:
 - Improve Getting Started Section
 
 Tech:
-- Linux
+- Linux with Manjaro KDE
 - Git with Gitlab 
 - Gitlab CI/CD
 - Docker
