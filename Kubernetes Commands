@@ -30,6 +30,9 @@ microk8s start
 //port forward dashboard
 microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443
 
+//port forward app
+sudo microk8s kubectl port-forward -n default todoapp 3000:3000
+
 //add repository of application to gitlab
 cd lecture-devops-app
 git init
