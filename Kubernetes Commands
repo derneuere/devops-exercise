@@ -11,6 +11,8 @@ sudo microk8s enable registry
 sudo microk8s enable ingress
 //install cert manager
 sudo microk8s kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v0.15.1/cert-manager.yaml
+//init pods
+sudo microk8s kubectl apply -f https://github.com/zainlol/devops-exercise/blob/master/microk8.yml
 
 //add to user group for dashboard
 sudo usermod -a -G microk8s $USER
@@ -21,8 +23,6 @@ su - $USER
 token=$(microk8s kubectl -n kube-system get secret | grep default-token | cut -d " " -f1)
 microk8s kubectl -n kube-system describe secret $token
 
-//init pods
-sudo microk8s kubectl apply -f microk8.yml
 
 //start pods
 microk8s start
