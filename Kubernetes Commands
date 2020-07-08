@@ -5,8 +5,12 @@ makepkg -si
 sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
 sudo snap install microk8s --classicslow
+//install dashboard, registry and ingress
 sudo microk8s enable dashboard
 sudo microk8s enable registry
+sudo microk8s enable ingress
+//install cert manager
+sudo microk8s kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v0.15.1/cert-manager.yaml
 
 //add to user group
 sudo usermod -a -G microk8s $USER
