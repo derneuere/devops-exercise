@@ -12,23 +12,23 @@ sudo microk8s enable ingress
 //install cert manager
 sudo microk8s kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v0.15.1/cert-manager.yaml
 
-//add to user group
+//add to user group for dashboard
 sudo usermod -a -G microk8s $USER
 sudo chown -f -R $USER ~/.kube
 su - $USER
 
-// create token
+// create token for dashboard
 token=$(microk8s kubectl -n kube-system get secret | grep default-token | cut -d " " -f1)
 microk8s kubectl -n kube-system describe secret $token
-
-//port forward
-microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443
 
 //init pods
 sudo microk8s kubectl apply -f microk8.yml
 
 //start pods
 microk8s start
+
+//port forward dashboard
+microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443
 
 //add repository of application to gitlab
 cd lecture-devops-app
