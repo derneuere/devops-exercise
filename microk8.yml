@@ -3,57 +3,52 @@ kind: Pod
 metadata:
   name: todoapp
 spec:
+  replicas: 2
   containers:
     - name: todoapp
-      image: localhost:32000/todoapp
+      image: registry.gitlab.com/devops-exercise/lecture-devops-app
       imagePullPolicy: Always
       ports:
         - containerPort: 3000
-        - containerPort: 27017
 ---
-apiVersion: apps/v1beta1
-kind: StatefulSet
+apiVersion: v1
+kind: Service
 metadata:
+  labels:
+    name: mongo
   name: mongo
 spec:
+  ports:
+    - port: 27017
+      targetPort: 27017
   selector:
-    matchLabels:
-      role: mongo
-      environment: test
-  serviceName: "mongo"
-  replicas: 3
+    name: mongo
+---
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    name: mongo
+  name: mongo-controller
+spec:
+  replicas: 1
   template:
     metadata:
       labels:
-        role: mongo
-        environment: test
+        name: mongo
     spec:
-      terminationGracePeriodSeconds: 10
       containers:
-      - name: mongo
-        image: mongo
-        command:
-          - mongod
-          - "--replSet"
-          - rs0
-          - "--smallfiles"
-          - "--noprealloc"
+      - image: mongo
+        name: mongo
         ports:
-          - containerPort: 27017
+        - name: mongo
+          containerPort: 27017
+          hostPort: 27017
         volumeMounts:
-          - name: mongo-persistent-storage
-            mountPath: /data/db
-      - name: mongo-sidecar
-        image: cvallance/mongo-k8s-sidecar
-        env:
-          - name: MONGO_SIDECAR_POD_LABELS
-            value: "role=mongo,environment=test"
-  volumeClaimTemplates:
-    - metadata:
-        name: mongo-persistent-storage
-      spec:
-        storageClassName: "fast"
-        accessModes: ["ReadWriteOnce"]
-        resources:
-          requests:
-            storage: 500Mi
+            - name: mongo-persistent-storage
+              mountPath: /data/db
+      volumes:
+        - name: mongo-persistent-storage
+          gcePersistentDisk:
+            pdName: mongo-disk
+            fsType: ext4
