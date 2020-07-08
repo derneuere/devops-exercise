@@ -9,9 +9,8 @@ spec:
       imagePullPolicy: Always
       ports:
         - containerPort: 3000
-
+        - containerPort: 27017
 ---
-
 apiVersion: apps/v1beta1
 kind: StatefulSet
 metadata:
@@ -58,32 +57,3 @@ spec:
         resources:
           requests:
             storage: 500Mi
-
----
-
-apiVersion: v1
-kind: volume
-metadata:
-  name: volumeForAllApplications
-spec:
-  storageClassName: standard 
-  capacity:
-    storage: 100Mi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/mnt/persistent-volume"
-
----
-
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: gitlab-volumeclaim
-spec:
-  storageClassName: standard 
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Mi
