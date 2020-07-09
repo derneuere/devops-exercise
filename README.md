@@ -1,11 +1,13 @@
-# Devops Exercise Title
+# Devops Exercise
 
 Getting Started:
 - If you want your own application repository us Gitlab Setup.md
 - Install MicroK8s with the "Kubernetes Commands" File
 
 Diagram:
-[Devops](https://user-images.githubusercontent.com/6658807/87092268-6d402200-c23b-11ea-87ca-04f6a47a9680.jpg)
+
+![Diagram](https://user-images.githubusercontent.com/6658807/87092268-6d402200-c23b-11ea-87ca-04f6a47a9680.jpg "Diagram for concept")
+
 Concept:
 - three docker container: Gitlab, Application with Node.js and NPM, MongoDB
 - version control: Gitlab
