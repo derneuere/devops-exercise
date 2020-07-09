@@ -1,22 +1,21 @@
 apiVersion: v1
 kind: ReplicationController
 metadata:
+  name: todoapp-test-controller
   labels:
-    name: todoapp-test
+    name: todoapp-test-controller
     namespace: test
-  name: todoapp-controller
 spec:
   replicas: 2
   template:
     metadata:
       labels:
-        name: todoapp
+        name: todoapp-test
     spec:
       containers:
-      - name: todoapp
-        namespace: todoapp
+      - name: todoapp-test
+        namespace: test
         image: registry.gitlab.com/devops-exercise/lecture-devops-app:test
-        imagePullPolicy: Always
         ports:
           - containerPort: 3000
 ---
@@ -37,15 +36,15 @@ spec:
 apiVersion: v1
 kind: ReplicationController
 metadata:
+  name: mongo-test-controller
   labels:
-    name: mongo
-  name: mongo-controller
+    name: mongo-test
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: mongo
+        name: mongo-test
     spec:
       containers:
       - image: mongo
