@@ -16,6 +16,7 @@ sudo microk8s kubectl apply --validate=false -f https://github.com/jetstack/cert
 //init pods
 sudo microk8s kubectl apply -f https://raw.githubusercontent.com/zainlol/devops-exercise/master/production.yaml
 sudo microk8s kubectl apply -f https://raw.githubusercontent.com/zainlol/devops-exercise/master/test.yaml
+sudo microk8s kubectl apply -f https://raw.githubusercontent.com/zainlol/devops-exercise/master/ingress.yaml 
 
 //add to user group for dashboard
 sudo usermod -a -G microk8s $USER

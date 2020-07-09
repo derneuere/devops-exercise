@@ -23,6 +23,19 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
+    name: todoapp-test
+  name: todoapp-test
+spec:
+  ports:
+    - port: 3000
+      targetPort: 3000
+  selector:
+    name: todoapp-test
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
     name: mongo-test
     namespace: test
   name: mongo-test
