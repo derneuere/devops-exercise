@@ -1,7 +1,7 @@
 Criteria:
-
-- resource allocation is automated
-- resource allocation is reproducible
+Points 11 / 20
+- resource allocation is automated ✓
+- resource allocation is reproducible ✓
 - component bootstrapping is automated ✓
 - component bootstrapping is reproducible ✓
 - every component exists and is operational
