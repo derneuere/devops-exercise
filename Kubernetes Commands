@@ -5,14 +5,17 @@ makepkg -si
 sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
 sudo snap install microk8s --classicslow
+
 //install dashboard, registry and ingress
 sudo microk8s enable dashboard
-sudo microk8s enable registry
 sudo microk8s enable ingress
+
 //install cert manager
 sudo microk8s kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v0.15.1/cert-manager.yaml
+
 //init pods
-sudo microk8s kubectl apply -f https://raw.githubusercontent.com/zainlol/devops-exercise/master/microk8.yaml
+sudo microk8s kubectl apply -f https://raw.githubusercontent.com/zainlol/devops-exercise/master/production.yaml
+sudo microk8s kubectl apply -f https://raw.githubusercontent.com/zainlol/devops-exercise/master/test.yaml
 
 //add to user group for dashboard
 sudo usermod -a -G microk8s $USER
@@ -22,7 +25,6 @@ su - $USER
 // create token for dashboard
 token=$(microk8s kubectl -n kube-system get secret | grep default-token | cut -d " " -f1)
 microk8s kubectl -n kube-system describe secret $token
-
 
 //start pods
 microk8s start
