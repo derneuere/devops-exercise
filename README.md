@@ -16,26 +16,6 @@ Backup Strategy:
 - run Gitlab @ gitlab.com
 https://gitlab.com/devops-exercise/lecture-devops-app/-/tree/master
 
-To-Do:
-- Install linux ✓
-- Install docker ✓  
-- Run application locally with dependencies ✓
-- Create dockerfile for the application: one application server/client, make sure it runs ✓
-- Find a docker image MongoDB ✓
-- Connect MongoDB with Application
-- Find a docker image for local Gitlab ✓
-- Check the application code into local Gitlab
-- Create gitlab-ci.yml (build/test/deploy when new version) ✓
-- Test gitlab-ci.yml ✓
-- Install MicroK8s ✓
-- Install Dashboard ✓
-- Install Registry ✓
-- Create Kubernetes.yml ✓
-- Test Kubernetes.yml
-- Push to registry of MicroK8s ✓
-- Configure Nginx to have FQDNs
-- Improve Getting Started Section
-
 Tech:
 - Linux with Manjaro KDE
 - Terminal with Fish
