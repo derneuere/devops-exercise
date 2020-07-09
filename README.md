@@ -6,7 +6,7 @@ Getting Started:
 
 Diagram:
 
-![Diagram](https://user-images.githubusercontent.com/6658807/87092268-6d402200-c23b-11ea-87ca-04f6a47a9680.jpg "Diagram for concept")
+![Devops](https://user-images.githubusercontent.com/6658807/87093038-d2484780-c23c-11ea-9ac7-e158f28cb0f0.png "Diagram for concept")
 
 Concept:
 - three docker container: Gitlab, Application with Node.js and NPM, MongoDB
