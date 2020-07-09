@@ -1,4 +1,4 @@
-# Devops ExerciseTitle
+# Devops Exercise Title
 
 Getting Started:
 - Install MicroK8s with the "Kubernetes Commands" File
@@ -9,6 +9,7 @@ Concept:
 - pipeline: Gitlab Ci
 - container: Docker
 - container orchestrator: MicroK8s
+- environments: test, production
 - local everything, except VCS and CI/CD via gitlab.com
 - complete infrastructure start script/option
 
@@ -32,9 +33,9 @@ Criteria:
 - at least one component - aside from the application - was bootstrapped by yourself -> Kubernetes via MicroK8s
 - submitted a Pull Request, that adds another meaningful test to the application
 - [3] quality and impression, e.g.:
-    reasonable documentation
-    readable commit messages
-    engagement
+    - reasonable documentation
+    - readable commit messages
+    - engagement
 
 Tech:
 - Linux with Manjaro KDE
