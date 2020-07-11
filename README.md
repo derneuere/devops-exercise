@@ -15,6 +15,7 @@ Concept:
 - container: Docker
 - container orchestrator: MicroK8s
 - environments: test, production
+- monitoring: Kubernetes Dashboard
 - local everything, except VCS and CI/CD via gitlab.com
 - complete infrastructure start script/option
 

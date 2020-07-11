@@ -1,19 +1,27 @@
+
+apiVersion: v1
+kind: Namespace
+metadata:
+    name: test
+    labels: 
+      name: test
+---
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: todoapp-test-controller
+  name: todoapp-controller
   labels:
-    name: todoapp-test-controller
-    namespace: test
+    name: todoapp-controller
+  namespace: test
 spec:
   replicas: 2
   template:
     metadata:
       labels:
-        name: todoapp-test
+        name: todoapp
     spec:
       containers:
-      - name: todoapp-test
+      - name: todoapp
         namespace: test
         image: registry.gitlab.com/devops-exercise/lecture-devops-app:test
         imagePullPolicy: Always
@@ -24,8 +32,9 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    name: todoapp-test
-  name: todoapp-test
+    name: todoapp
+  name: todoapp
+  namespace: test
 spec:
   type: NodePort
   ports:
@@ -33,42 +42,42 @@ spec:
       port: 3000
       targetPort: 3000
   selector:
-    name: todoapp-test
+    name: todoapp
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
-    name: mongo-test
-    namespace: test
-  name: mongo-test
+    name: mongo
+  namespace: test
+  name: mongo
 spec:
   ports:
     - port: 27017
       targetPort: 27017
   selector:
-    name: mongo-test
+    name: mongo
 ---
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  name: mongo-test-controller
+  name: mongo-controller
+  namespace: test
   labels:
-    name: mongo-test
+    name: mongo
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        name: mongo-test
+        name: mongo
     spec:
       containers:
       - image: mongo
-        name: mongo-test
+        name: mongo
         ports:
-        - name: mongo-test
+        - name: mongo
           containerPort: 27017
-          hostPort: 27017
         volumeMounts:
             - name: mongo-persistent-storage
               mountPath: /data/db
