@@ -14,9 +14,10 @@ sudo microk8s enable ingress
 sudo microk8s kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v0.15.1/cert-manager.yaml
 
 //init pods
-sudo microk8s kubectl apply -f https://raw.githubusercontent.com/zainlol/devops-exercise/master/production.yaml
-sudo microk8s kubectl apply -f https://raw.githubusercontent.com/zainlol/devops-exercise/master/test.yaml
-sudo microk8s kubectl apply -f https://raw.githubusercontent.com/zainlol/devops-exercise/master/ingress.yaml 
+sudo microk8s kubectl apply --validate=false -f https://raw.githubusercontent.com/zainlol/devops-exercise/master/production.yaml
+sudo microk8s kubectl apply --validate=false -f https://raw.githubusercontent.com/zainlol/devops-exercise/master/test.yaml
+sudo microk8s kubectl apply --validate=false -f https://raw.githubusercontent.com/zainlol/devops-exercise/master/ingress.yaml 
+sudo microk8s kubectl apply --validate=false -f https://raw.githubusercontent.com/zainlol/devops-exercise/master/selfsigned-certs.yaml
 
 //add to user group for dashboard
 sudo usermod -a -G microk8s $USER

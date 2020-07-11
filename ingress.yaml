@@ -1,20 +1,31 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: todoapp
+  name: todoapp-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: hello.todoapp.app
+  - host: todoapp.com
     http:
       paths:
-      - path: /prod/(.*)
+      - path: /
         backend:
           serviceName: todoapp
           servicePort: 3000
-      - path: /test/(.*)
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: todoapp-test-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: test.todoapp.com
+    http:
+      paths:
+      - path: /
         backend:
           serviceName: todoapp-test
           servicePort: 3000

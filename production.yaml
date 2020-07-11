@@ -15,6 +15,7 @@ spec:
       - name: todoapp
         namespace: todoapp
         image: registry.gitlab.com/devops-exercise/lecture-devops-app:prod
+        imagePullPolicy: Always
         ports:
           - containerPort: 3000
 ---
