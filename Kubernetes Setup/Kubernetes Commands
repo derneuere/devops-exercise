@@ -6,18 +6,11 @@ sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap
 sudo snap install microk8s --classicslow
 
-//install dashboard, registry and ingress
-sudo microk8s enable dashboard
-sudo microk8s enable ingress
+//install dashboard and ingress
+sudo microk8s enable dashboard ingress
 
 //install cert manager
 sudo microk8s kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v0.15.1/cert-manager.yaml
-
-//init pods
-sudo microk8s kubectl apply --validate=false -f https://raw.githubusercontent.com/zainlol/devops-exercise/master/production.yaml
-sudo microk8s kubectl apply --validate=false -f https://raw.githubusercontent.com/zainlol/devops-exercise/master/test.yaml
-sudo microk8s kubectl apply --validate=false -f https://raw.githubusercontent.com/zainlol/devops-exercise/master/ingress.yaml 
-sudo microk8s kubectl apply --validate=false -f https://raw.githubusercontent.com/zainlol/devops-exercise/master/selfsigned-certs.yaml
 
 //add to user group for dashboard
 sudo usermod -a -G microk8s $USER
@@ -28,11 +21,11 @@ su - $USER
 token=$(microk8s kubectl -n kube-system get secret | grep default-token | cut -d " " -f1)
 microk8s kubectl -n kube-system describe secret $token
 
+//init pods
+sudo microk8s kubectl apply --validate=false -f production.yaml
+sudo microk8s kubectl apply --validate=false -f test.yaml
+sudo microk8s kubectl apply --validate=false -f ingress.yaml 
+sudo microk8s kubectl apply --validate=false -f selfsigned-certs.yaml
+
 //start pods
 microk8s start
-
-//port forward dashboard
-microk8s kubectl port-forward -n kube-system service/kubernetes-dashboard 10443:443
-
-//port forward app
-sudo microk8s kubectl port-forward -n default todoapp 3000:3000
