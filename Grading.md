@@ -1,10 +1,10 @@
 Criteria:
-Points 14 / 20
+Points 16 / 20
 - resource allocation is automated ✓
 - resource allocation is reproducible ✓
 - component bootstrapping is automated ✓
 - component bootstrapping is reproducible ✓
-- every component exists and is operational
+- every component exists and is operational ✓
 - every component can be reached via HTTPS ✓
 - FQDNs are configured for all components, resolve to each of them and serve them properly ✓
 - application runs with a replication factor of 2 ✓
@@ -13,7 +13,7 @@ Points 14 / 20
 - CI/CD pipeline is triggered through VCS commit, or manually, in case of production environment ✓
 - CI/CD pipeline consists of at least 3 stages ✓
 - overall setup implements all environments ✓
-- concept matches implementation
+- concept matches implementation ✓
 - implementation meets all formal requirements ✓
 - at least one component - aside from the application - was bootstrapped by yourself ✓
 - submitted a Pull Request, that adds another meaningful test to the application
