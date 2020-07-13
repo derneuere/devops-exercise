@@ -23,7 +23,7 @@ https://gitlab.com/devops-exercise/lecture-devops-app
 
 ## Diagram:
 
-![Devops](https://user-images.githubusercontent.com/6658807/87093038-d2484780-c23c-11ea-9ac7-e158f28cb0f0.png "Diagram for concept")
+![Devops](https://user-images.githubusercontent.com/6658807/87355290-6d546080-c560-11ea-9dc7-ebea0c0d3509.jpg "Diagram for concept")
 
 ## Concept:
 - three docker container: Gitlab, Application with Node.js and NPM, MongoDB

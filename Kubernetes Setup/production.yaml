@@ -47,7 +47,7 @@ spec:
       port: 3000
       targetPort: 3000
   selector:
-    name: todoapp
+    app: todoapp
 ---
 apiVersion: v1
 kind: Service

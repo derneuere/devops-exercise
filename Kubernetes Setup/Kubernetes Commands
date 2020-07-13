@@ -31,6 +31,7 @@ microk8s kubectl apply --validate=false -f production.yaml
 microk8s kubectl apply --validate=false -f test.yaml
 microk8s kubectl apply --validate=false -f ingress.yaml 
 microk8s kubectl apply --validate=false -f selfsigned-certs.yaml
-microk8s kubectl apply --validate=false -f cronjobs.yaml
+microk8s kubectl apply --validate=false -f serviceaccount.yaml
+microk8s kubectl apply --validate=false -f cronjob.yaml
 
 
