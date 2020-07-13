@@ -5,19 +5,22 @@ metadata:
     labels: 
       name: production
 ---
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    name: todoapp
+    app: todoapp
   name: todoapp-controller
   namespace: production
 spec:
+  selector:
+    matchLabels:
+      app: todoapp
   replicas: 2
   template:
     metadata:
       labels:
-        name: todoapp
+        app: todoapp
     spec:
       containers:
       - name: todoapp
