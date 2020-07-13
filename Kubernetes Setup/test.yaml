@@ -7,7 +7,7 @@ metadata:
       name: test
 ---
 apiVersion: v1
-kind: ReplicationController
+kind: Deployment
 metadata:
   name: todoapp-controller
   labels:

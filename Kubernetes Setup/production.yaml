@@ -6,7 +6,7 @@ metadata:
       name: production
 ---
 apiVersion: v1
-kind: ReplicationController
+kind: Deployment
 metadata:
   labels:
     name: todoapp
