@@ -26,6 +26,7 @@ sudo microk8s kubectl apply --validate=false -f production.yaml
 sudo microk8s kubectl apply --validate=false -f test.yaml
 sudo microk8s kubectl apply --validate=false -f ingress.yaml 
 sudo microk8s kubectl apply --validate=false -f selfsigned-certs.yaml
+sudo microk8s kubectl apply --validate=false -f cronjobs.yaml
 
 //start pods
 microk8s start
