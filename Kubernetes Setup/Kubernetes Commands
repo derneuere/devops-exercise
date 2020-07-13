@@ -1,32 +1,36 @@
+sudo su
+
 //install snap and MicroK8s
 git clone https://aur.archlinux.org/snapd.git
 cd snapd
 makepkg -si
-sudo systemctl enable --now snapd.socket
-sudo ln -s /var/lib/snapd/snap /snap
-sudo snap install microk8s --classicslow
+systemctl enable --now snapd.socket
+ln -s /var/lib/snapd/snap /snap
+snap install microk8s --classicslow
+
+//start micork8s
+microk8s start
 
 //install dashboard and ingress
-sudo microk8s enable dashboard ingress
+microk8s enable dashboard ingress
 
 //install cert manager
-sudo microk8s kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v0.15.1/cert-manager.yaml
+microk8s kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v0.15.1/cert-manager.yaml
 
 //add to user group for dashboard
-sudo usermod -a -G microk8s $USER
-sudo chown -f -R $USER ~/.kube
+usermod -a -G microk8s $USER
+chown -f -R $USER ~/.kube
 su - $USER
 
 // create token for dashboard
 token=$(microk8s kubectl -n kube-system get secret | grep default-token | cut -d " " -f1)
 microk8s kubectl -n kube-system describe secret $token
 
-//init pods
-sudo microk8s kubectl apply --validate=false -f production.yaml
-sudo microk8s kubectl apply --validate=false -f test.yaml
-sudo microk8s kubectl apply --validate=false -f ingress.yaml 
-sudo microk8s kubectl apply --validate=false -f selfsigned-certs.yaml
-sudo microk8s kubectl apply --validate=false -f cronjobs.yaml
-
 //start pods
-microk8s start
+microk8s kubectl apply --validate=false -f production.yaml
+microk8s kubectl apply --validate=false -f test.yaml
+microk8s kubectl apply --validate=false -f ingress.yaml 
+microk8s kubectl apply --validate=false -f selfsigned-certs.yaml
+microk8s kubectl apply --validate=false -f cronjobs.yaml
+
+
