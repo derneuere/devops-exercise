@@ -21,3 +21,29 @@ spec:
               image: philpep/imago
               imagePullPolicy: Always
               args: ["--update"]
+              
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: imago
+  namespace: production
+spec:
+  schedule: "* * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            k8s-app: imago
+        spec:
+          restartPolicy: Never
+          serviceAccount: imago
+          serviceAccountName: imago
+          containers:
+            - name: imago
+              image: philpep/imago
+              imagePullPolicy: Always
+              args: ["--update"]
+
