@@ -4,7 +4,7 @@
 
 ### Gitlab Setup
 To setup your github repository install a local github or use gitlab.com \
-Push the code from https://github.com/lucendio/lecture-devops-app to your new repository at gitlab \
+Push the code from https://github.com/lucendio/lecture-devops-app to your new repository at gitlab 
 
 - Add Dockerfile and gitlab-ci.yaml to the repository
 - Replace dev.env otherwise the MongoDB will not connect
