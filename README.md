@@ -12,7 +12,7 @@ Push the code from https://github.com/lucendio/lecture-devops-app to your new re
 ### Kubernetes Setup
 - Install MicroK8s and it's pods with the [Kubernetes Commands](https://github.com/zainlol/devops-exercise/tree/master/Kubernetes%20Setup)
 ### Local Setup
-Add the following entries to your etc/hosts:\
+Add the following entries to your /etc/hosts:\
 \
 127.0.0.1  todoapp.com\
 127.0.0.1  test.todoapp.com\
