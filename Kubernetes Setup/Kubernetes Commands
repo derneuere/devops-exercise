@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo su
 
 //install snap and MicroK8s
@@ -26,6 +28,7 @@ su - $USER
 token=$(microk8s kubectl -n kube-system get secret | grep default-token | cut -d " " -f1)
 microk8s kubectl -n kube-system describe secret $token
 
+cd devops-exercise/Kubernetes Setup
 //start pods
 microk8s kubectl apply --validate=false -f production.yaml
 microk8s kubectl apply --validate=false -f test.yaml
